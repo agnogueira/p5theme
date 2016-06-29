@@ -1,0 +1,92 @@
+.container {
+  width: 100%;
+  max-width: 1170px;
+}
+
+
+#top-bar,
+#main-header {
+    border-bottom: 1px solid #ccc;
+}
+
+#portal-searchbox {
+    float: right;
+}
+#portal-searchbox form {
+    margin-bottom: 0;
+}
+
+#logo {
+    margin-top: 20px;
+}
+
+#portal-breadcrumbs {
+    background: #f1f1f1;
+}
+#hero {
+    padding: 60px 0 30px 0;
+    background-color: #f1f1f1;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+}
+footer {
+    background: #f6f6f6;
+}
+
+#portal-globalnav {
+    margin: 20px 0 0 0;
+}
+.plone-nav li {
+    display: inline-block;
+        margin-right: 25px;
+}
+.plone-nav li a {
+    text-align: center;
+    font-size: 1.4em;
+    text-decoration: none;
+}
+.section-front-page #portal-breadcrumbs {
+    display: none;
+}
+#portal-breadcrumbs ol {
+    margin: 0;
+}
+#portal-breadcrumbs ol li {
+    font-weight: 400;
+    display: inline-block;
+    line-height: 0;
+    position: relative;
+    padding: 0 30px 0 0;
+}
+.plone-breadcrumb ol > li + li:before {
+    content:  "\203A ";
+    position: absolute;
+    color: #cccccc;
+    left: -20px;
+    padding: 0 !important;
+}
+.sr-only, .hiddenStructure, .crud-form .header-select {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    color: #fff;
+    background-color: #000;
+}
+
+.plone-navbar-header {
+    display: none;
+}
+.plone-navbar-toggle {
+    margin-bottom: 1rem;
+    border-top: 15px double #ccc;
+    border-bottom: 5px solid #ccc;
+    height: auto;
+    padding-bottom: 5px;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+}
