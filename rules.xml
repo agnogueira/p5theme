@@ -49,7 +49,7 @@
         <!-- Central column -->
         <rules if-content="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">
           <replace css:content="#portal-column-content" css:theme-children="#portal-column-content.c010" />
-          <drop css:theme="#portal-column-content.c010" />
+          <drop css:theme="#portal-column-content.c011" />
           <drop css:theme="#portal-column-content.c111" />
         </rules>
 
