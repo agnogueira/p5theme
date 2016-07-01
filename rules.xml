@@ -7,6 +7,7 @@
     <!-- Apply the following rules to standard Plone pages -->
     <rules css:if-content="#visual-portal-wrapper">
 
+
         <theme href="index.html" />
 
         <!-- Replace title with Plone's page title  -->
@@ -26,38 +27,69 @@
         <after css:theme-children="html body" css:content="html head script" />
 
         <!-- Insert your own rules here -->
-        
+
         <!-- Content header -->
         <replace css:theme="#portal-searchbox" css:content="#portal-searchbox" />
         <drop css:content=".searchSection" />
         <replace css:theme-children="#logo" css:content="#portal-logo" />
-        
+
         <!-- move global nav -->
         <replace css:theme="#main-navigation" css:content-children="#portal-mainnavigation" />
         <drop css:content=".plone-navbar .icon-bar" />
-        
+
         <!-- full-width breadcrumb -->
         <replace css:content="#viewlet-above-content" css:theme="#breadcrumb" />
-        
-          <!-- move hero to top -->
-  <replace css:theme-children="#hero .container" css:content-children=".hero" />
-  <drop css:theme="#hero" css:if-not-content=".hero" />
-  <drop css:content=".hero" />
-  
-  <replace css:content="#portal-column-content" css:theme-children="#portal-column-content" />
-  
+
+        <!-- move hero to top -->
+        <replace css:theme-children="#hero .container" css:content-children=".hero" />
+        <drop css:theme="#hero" css:if-not-content=".hero" />
+        <drop css:content=".hero" />
 
 
-  <!-- Right column -->
- <rules css:if-content="#portal-column-one">
-    <replace css:theme-children="#coluna1" css:content="#portal-column-one" />
-</rules>
-<rules css:if-content="#portal-column-two">
-    <replace css:theme-children="#coluna2" css:content="#portal-column-two" />
-</rules>
+        <!-- Central column -->
+        <rules if-content="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">
+          <replace css:content="#portal-column-content" css:theme-children="#portal-column-content.c010" />
+          <drop css:theme="#portal-column-content.c010" />
+          <drop css:theme="#portal-column-content.c111" />
+        </rules>
 
-<replace css:theme-children="footer .container" css:content-children="#portal-footer-wrapper" />
-        
+        <rules if-content="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">
+          <replace css:content="#portal-column-content" css:theme-children="#portal-column-content.c111" />
+          <drop css:theme="#portal-column-content.c010" />
+          <drop css:theme="#portal-column-content.c011" />
+        </rules>
+
+        <rules if-content="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">
+          <replace css:content="#portal-column-content" css:theme-children="#portal-column-content.c011" />
+          <drop css:theme="#portal-column-content.c111" />
+          <drop css:theme="#portal-column-content.c010" />
+        </rules>
+
+        <rules if-content="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">
+          <replace css:content="#portal-column-content" css:theme-children="#portal-column-content.c011" />
+          <drop css:theme="#portal-column-content.c010" />
+          <drop css:theme="#portal-column-content.c111" />
+        </rules>
+
+
+        <!-- Columns -->
+         <rules css:if-content="#portal-column-one">
+            <replace css:theme-children="#column-one" css:content="#portal-column-one" />
+        </rules>
+        <rules if-content="not(//*[@id='portal-column-one'])">
+            <drop css:theme="#column-one" />
+        </rules>
+        <rules css:if-content="#portal-column-two">
+            <replace css:theme-children="#column-two" css:content="#portal-column-two" />
+        </rules>
+        <rules if-content="not(//*[@id='portal-column-two'])">
+            <drop css:theme="#column-two" />
+        </rules>
+
+        <replace css:theme-children="footer .container" css:content-children="#portal-footer-wrapper" />
+
+
+
         <!-- toolbar -->
         <replace css:theme="#portal-toolbar" css:content-children="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
         <drop css:theme="#portal-toolbar" css:if-content=".userrole-anonymous" />
